@@ -12,4 +12,8 @@ object FileUtil {
 			NilExtension
 		}
 	}
+
+	def getName(filepath: String) = {
+		new java.io.File(filepath).getName
+	}
 }

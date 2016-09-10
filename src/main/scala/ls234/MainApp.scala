@@ -4,7 +4,8 @@ object MainApp extends App {
 	if (args.length < 1) {
 		println("Usage: CodeAnalyzer FilePath")
 	} else {
-		val sourceCode = SourceCode.fromFile(args(0))
-		println(s"name: ${sourceCode.name}    count:${sourceCode.count}")
+		val sa = new SourceCodeAnalyzer{}
+		val sourceCodeInfo = sa.fromFile(args(0))
+		println(s"name: ${sourceCodeInfo.name}    count:${sourceCodeInfo.count}")
 	}
 }

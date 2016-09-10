@@ -1,10 +1,8 @@
 package ls234
 
-class SourceCode(val path:String, val name:String, private val lines: List[String]) {
-	def count = lines.length
-}
+case class SourceCodeInfo(path: String, name: String, count: Int)
 
-object SourceCode {
+trait SourceCodeAnalyzer {
 	def fromFile(path: String) = {
 		import scala.io.{Source, BufferedSource}
 
@@ -12,6 +10,6 @@ object SourceCode {
 		val lines = source.getLines().toList
 		val name = path.split("/").last
 
-		new SourceCode(path, name, lines)
+		SourceCodeInfo(path, name, lines.size)
 	}
 }
